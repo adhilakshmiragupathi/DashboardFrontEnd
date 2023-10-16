@@ -1,0 +1,20 @@
+{{empForm.value | json}}
+
+<form [formGroup]="empForm" novalidate>
+    <p>Employee ID <input type="text" formControlName="eid" [class.is-invalid]="eid.invalid && eid.touched"></p>
+    <div *ngIf="eid.touched">
+        <div *ngIf="eid.invalid">
+            <small style="color: crimson ;" *ngIf="eid.errors?.['required']">Employee ID cannot be empty</small>
+            <small style="color: crimson ;" *ngIf="eid.errors?.['minlength']">Employee length shold atleast 3 char</small>
+
+        </div>
+
+    </div>
+    <p>Employee Name <input type="text" formControlName="ename"></p>
+    <p>Employee salary<input type="text" formControlName="salary"></p>
+    <p>Department <select name="" id="" formControlName="dept">
+       <option value="Default">----Select----</option>
+        <option *ngFor="let dept of depts" value="{{dept}}">{{dept}}</option> 
+    </select>
+    </p>
+</form>

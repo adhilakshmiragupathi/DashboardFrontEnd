@@ -1,0 +1,55 @@
+<p>template-form-demo works!</p>
+{{emp|json}}
+<form #empform="ngForm">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Employee ID</label>
+        <input type="text" class="form-control" id="eid" placeholder="Enter ID" [(ngModel)]='emp.eid' name="eid" #eid >
+        <div>{{eid.className}}</div>
+        <!-- <div *ngIf="eid.touched"> 
+            <div *ngIf="eid.invalid"> 
+            <small class="text-danger" *ngIf="eid.errors?.['required']">Employee Id Can't be empty</small>
+            <small class="text-danger" *ngIf="eid.errors?.['pattern']">Employee Id Should be like 'E123'</small>
+            </div>
+        </div> -->
+      <br><br>
+    </div>
+
+
+   <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label" >Employee Name</label>
+       <input type="text" class="form-control" id="ename" placeholder="Enter Name" [(ngModel)]='emp.ename' name="ename"  #ename="ngModel" required [class.is-invalid]="ename.invalid && ename.touched">
+ <div *ngIf="ename.touched"> 
+    <div *ngIf="ename.invalid"> 
+    <small class="text-danger" *ngIf="ename.errors?.['required']">Employee Name Can't be empty</small>
+    </div>
+   </div>
+   <br><br>
+   </div>
+
+
+   <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label" >Employee Salary</label>
+   <input type="text" class="form-control" id="salary" placeholder="Enter Name" [(ngModel)]='emp.salary' name="salary"  #salary="ngModel" required [class.is-invalid]="salary.invalid && salary.touched">
+<div *ngIf="salary.touched"> 
+<div *ngIf="salary.invalid"> 
+<small class="text-danger" *ngIf="salary.errors?.['required']">Employee Name Can't be empty</small>
+</div>
+</div>
+<br><br>
+</div>
+
+
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label" style="background-color: antiquewhite;">Employee Dept</label>
+    <select class="forms.select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let dept of departments" value="{{dept}}">{{dept}}</option>
+  
+    </select>
+</div>
+
+
+
+
+
+
